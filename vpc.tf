@@ -45,3 +45,10 @@ resource "aws_route_table" "eks" {
     Name = "terraform-eks-demo"
   }
 }
+
+resource "aws_route_table_association" "eks" {
+  count          = 2
+  subnet_id      = aws_subnet.eks.*.id[count.index]
+  route_table_id = aws_route_table.eks.id
+
+}
