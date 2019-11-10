@@ -1,3 +1,5 @@
+# Basic VPC and networking setup for EKS cluster
+
 data "aws_availability_zones" "available" {}
 
 resource "aws_vpc" "eks" {
